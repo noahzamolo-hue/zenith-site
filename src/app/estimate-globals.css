@@ -1,0 +1,24 @@
+/* ─────────────────────────────────────────────────────────────
+   Zenith Estimate Flow — global additions
+   Add these to your existing globals.css (or import in layout.tsx)
+   ───────────────────────────────────────────────────────────── */
+
+/* Google Fonts — add to <head> in layout.tsx:
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+   <link
+     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap"
+     rel="stylesheet"
+   />
+*/
+
+/* Reset for the estimate wrapper */
+.zenith-estimate-wrapper *,
+.zenith-estimate-wrapper *::before,
+.zenith-estimate-wrapper *::after {
+  box-sizing: border-box;
+}
+
+.zenith-estimate-wrapper button {
+  -webkit-font-smoothing: antialiased;
+}
