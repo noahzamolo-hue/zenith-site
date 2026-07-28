@@ -33,18 +33,18 @@ const zones = [
     note: "Clinical-grade disinfection to RACGP GP4.1 standard. Yellow-coded equipment dedicated to clinical spaces.",
   },
   {
-    colour: "#1F7A5C",
-    label: "Green Zone",
-    name: "General & Admin Areas",
-    areas: ["Reception & waiting room", "Admin desks", "Corridors", "Staff rooms"],
-    note: "General clean with TGA-approved surface disinfection. Green-coded equipment never enters clinical or bathroom zones.",
-  },
-  {
     colour: "#2A7FBC",
     label: "Blue Zone",
+    name: "General & Admin Areas",
+    areas: ["Reception & waiting room", "Admin desks", "Corridors", "Staff rooms"],
+    note: "General clean with TGA-approved surface disinfection. Blue-coded equipment never enters clinical or bathroom zones.",
+  },
+  {
+    colour: "#1F7A5C",
+    label: "Green Zone",
     name: "Kitchen & Food Areas",
     areas: ["Staff kitchen", "Tea points", "Food preparation surfaces"],
-    note: "Food-safe cleaning products only. Blue-coded equipment isolated from all clinical and bathroom areas.",
+    note: "Food-safe cleaning products only. Green-coded equipment isolated from all clinical and bathroom areas.",
   },
 ];
 
