@@ -16,8 +16,8 @@ const services = [
 const zones = [
   { colour: '#DC2626', label: 'Red Zone', name: 'Bathrooms & Toilets', note: 'Dedicated red-coded equipment only' },
   { colour: '#CA8A04', label: 'Yellow Zone', name: 'Consultation & Treatment', note: 'Clinical-grade disinfection' },
-  { colour: '#1F7A5C', label: 'Green Zone', name: 'General & Admin Areas', note: 'TGA-approved surface disinfection' },
-  { colour: '#2A7FBC', label: 'Blue Zone', name: 'Kitchen & Food Areas', note: 'Food-safe products, isolated equipment' },
+  { colour: '#2A7FBC', label: 'Blue Zone', name: 'General & Admin Areas', note: 'TGA-approved surface disinfection' },
+  { colour: '#1F7A5C', label: 'Green Zone', name: 'Kitchen & Food Areas', note: 'Food-safe products, isolated equipment' },
 ]
 
 // Set to a real number (e.g. '20') once verifiable to switch on the
