@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 const zones = [
   { colour: '#DC2626', label: 'RED', name: 'Bathrooms & toilets', detail: 'Patient and staff toilets, sluice rooms, clinical waste storage. The highest-contamination areas in any practice — red equipment exists so whatever lives here stays here.' },
   { colour: '#CA8A04', label: 'YELLOW', name: 'Clinical areas', detail: 'Consultation, treatment and procedure rooms. Cleaned with TGA-listed disinfectants at labelled contact times, with equipment dedicated to clinical spaces only.' },
-  { colour: '#1F7A5C', label: 'GREEN', name: 'General areas', detail: 'Reception, waiting rooms, corridors, admin. Lower infection risk but the highest-touch traffic in the building — seating, counters, door hardware.' },
-  { colour: '#2A7FBC', label: 'BLUE', name: 'Kitchen & food areas', detail: 'Staff kitchens, tea points, food-contact surfaces. Food-safe products only, and isolation from every other zone — nobody wants bathroom equipment near the kettle.' },
+  { colour: '#2A7FBC', label: 'BLUE', name: 'General areas', detail: 'Reception, waiting rooms, corridors, admin. Lower infection risk but the highest-touch traffic in the building — seating, counters, door hardware.' },
+  { colour: '#1F7A5C', label: 'GREEN', name: 'Kitchen & food areas', detail: 'Staff kitchens, tea points, food-contact surfaces. Food-safe products only, and isolation from every other zone — nobody wants bathroom equipment near the kettle.' },
 ]
 
 export default function Page() {

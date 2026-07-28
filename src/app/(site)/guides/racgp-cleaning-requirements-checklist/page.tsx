@@ -167,7 +167,7 @@ export default function RacgpChecklistArticle() {
           </h3>
           <ul className="space-y-3">
             <CheckItem>Every room in the practice is classified into a cleaning zone — bathrooms/toilets, clinical (consultation, treatment and procedure rooms), general/admin, and kitchen/food areas.</CheckItem>
-            <CheckItem>Cleaning equipment (mops, buckets, cloths) is colour-coded per zone — conventionally red for bathrooms, yellow for clinical, green for general, blue for kitchens.</CheckItem>
+            <CheckItem>Cleaning equipment (mops, buckets, cloths) is colour-coded per zone — conventionally red for bathrooms, yellow for clinical, blue for general, green for kitchens.</CheckItem>
             <CheckItem>Equipment from one zone is never used in another — and your cleaner can explain the system if a surveyor asks them directly.</CheckItem>
             <CheckItem>Zone classifications are written down somewhere a surveyor can see, not just &quot;understood&quot;.</CheckItem>
           </ul>
