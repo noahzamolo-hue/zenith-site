@@ -9,6 +9,8 @@
 
 > Run UV and ATP on the **same** high-touch points so the two methods corroborate each other.
 
+> **No maths, no counting.** The supervisor only records raw readings: tap **Pass/Fail** per UV point, and type the **RLU number** per ATP surface. UV pass %, ATP passed/taken, highest RLU, and each surface's pass/fail-vs-threshold are all computed automatically (see "Scoring — done for you" below).
+
 ---
 
 ## Header
@@ -19,7 +21,7 @@
 | Date | Auto | ✔ |
 
 ## UV marker audit
-For each marked point: **Removed (Pass) / Present (Fail)**
+For each marked point, one **Pass / Fail dropdown** (Pass = marker removed, Fail = still present). Nothing to count — that's it.
 | Point | Type |
 |-------|------|
 | Yellow — exam room door handle | Pass/Fail dropdown |
@@ -28,33 +30,35 @@ For each marked point: **Removed (Pass) / Present (Fail)**
 | Red — bathroom tap | Pass/Fail dropdown |
 | Green — reception counter edge | Pass/Fail dropdown |
 | Green — waiting room chair arm | Pass/Fail dropdown |
-| Points passed (auto-count) | Number |
-| Points checked | Number |
 
 ## ATP swab readings (RLU)
-**Pass thresholds:** Yellow/clinical **< 250 RLU** · Red/Green/Blue **< 500 RLU**. (Confirm against your luminometer's guidance — see SOP.)
-| Surface swabbed | RLU | Pass? |
-|-----------------|-----|-------|
-| Yellow — exam bed surface | Number | Pass/Fail |
-| Yellow — clinical door handle | Number | Pass/Fail |
-| Red — bathroom tap | Number | Pass/Fail |
-| Green — reception counter | Number | Pass/Fail |
-| Blue — kitchen bench | Number | Pass/Fail |
+Type the number off the luminometer. **Don't mark pass/fail** — the software compares each RLU to its zone threshold automatically. Thresholds shown in the label for reference: Yellow/clinical **< 250**, Red/Green/Blue **< 500** (confirm against your device — see SOP).
+| Surface swabbed | Type |
+|-----------------|------|
+| Yellow — exam bed surface (pass < 250) | Number |
+| Yellow — clinical door handle (pass < 250) | Number |
+| Red — bathroom tap (pass < 500) | Number |
+| Green — reception counter (pass < 500) | Number |
+| Blue — kitchen bench (pass < 500) | Number |
 
-## Summary (dashboard reads these)
+## Close-out (the only thing the supervisor adds)
 | Field | Type | Required |
 |-------|------|----------|
-| UV pass rate % | Number | ✔ |
-| ATP swabs passed | Number | ✔ |
-| ATP swabs taken | Number | ✔ |
-| Highest RLU reading | Number | ✔ |
-| Re-clean triggered? | Yes/No | ✔ |
-| Verifier sign-off | Signature | ✔ |
+| Verifier sign-off | Signature / completion | ✔ |
+
+**No summary/percentage fields.** UV pass %, ATP passed/taken, highest RLU, and "re-clean triggered?" are all derived from the raw entries above — the supervisor never types a calculated number.
 
 ---
 
+## Scoring — done for you (no supervisor maths)
+
+Same as the weekly audit: Jobber captures the raw entries; the numbers are computed after submission.
+
+1. **Built-in (dashboard live):** ratings + RLUs sync via the Jobber API and `/portal/qc` computes UV pass % with `zoneScoreFromRatings()` and each ATP pass/fail with `atpPass(rlu, zone)` — both in `src/lib/qc/kpis.ts`. Any UV Fail or ATP over threshold auto-raises a re-clean.
+2. **Interim, no-code:** Jobber → Zapier → Google Sheet. `=COUNTIF(uv_range,"Pass")/COUNTA(uv_range)` for UV %; `=IF(rlu<threshold,"Pass","Re-clean")` per ATP surface.
+
 ### Dashboard mapping
-- UV pass rate % → **KPI #3**.
-- ATP passed ÷ taken → **KPI #4**; individual RLU values → the **ATP trend chart**.
-- Any Fail (UV present or ATP over threshold) → immediate re-clean of that point + a corrective action.
+- UV Pass/Fail answers → auto UV pass % → **KPI #3**.
+- ATP RLUs → auto pass/fail vs threshold → **KPI #4**; the raw RLUs feed the **ATP trend chart**.
+- Any Fail (UV present or ATP over threshold) → auto re-clean flag + corrective action.
 - These readings are the headline numbers in the **monthly client compliance PDF** — objective, dated, defensible.

@@ -4,7 +4,9 @@
 **Completed by:** the supervisor (your 70% contractor) — *not* the cleaner who did the work.
 **Purpose:** independent scored inspection. This is the accountability lever: the audit score is how you hold the contractor to standard.
 
-> Scoring model: each item is **Pass / Fail / N/A**. Zone score = passes ÷ applicable items. Jobber can't auto-average — enter the % in the summary fields at the bottom so the dashboard reads them.
+> **The supervisor only taps Pass / Fail / N/A on each item — no maths, no typing percentages.** Scoring is computed automatically downstream (see "Scoring — done for you" below). Every item below is a **Pass / Fail / N/A dropdown**; add one dropdown *per line*, not one per zone.
+>
+> Reference only — the formula the software applies: `Zone % = Passes ÷ (Passes + Fails) × 100`. N/A items drop out of the maths entirely.
 
 ---
 
@@ -59,20 +61,27 @@ Each: **Pass / Fail / N/A**
 | Defect 1 — assigned to | Short text |
 | (repeat rows 2–5 as needed) | |
 
-## Summary (dashboard reads these)
+## Close-out (the only thing the supervisor adds)
 | Field | Type | Required |
 |-------|------|----------|
-| Red zone score % | Number | ✔ |
-| Yellow zone score % | Number | ✔ |
-| Green zone score % | Number | ✔ |
-| Blue zone score % | Number | ✔ |
-| Overall site score % | Number | ✔ |
-| Number of defects logged | Number | ✔ |
-| Auditor sign-off | Signature | ✔ |
+| Auditor sign-off | Signature / completion | ✔ |
+
+There are **no percentage fields to fill in.** Zone scores, overall score, and defect count are all calculated from the Pass/Fail/N/A answers above — the supervisor never types a number.
 
 ---
 
+## Scoring — done for you (no supervisor maths)
+
+Jobber captures the ratings; the **percentages are computed automatically** from them. Two ways this happens:
+
+1. **Built-in (once the dashboard is live):** the ratings sync via the Jobber API and `/portal/qc` computes every zone % using `zoneScoreFromRatings()` in `src/lib/qc/kpis.ts`. Nothing manual.
+2. **Interim, no-code (works before the dashboard is wired):** connect Jobber → **Zapier** → a Google Sheet. The Sheet holds the formula `= passes / (passes + fails)` per zone and shows the score the moment a checklist is submitted.
+
+Either way the supervisor's job is simply: **rate each item, log any fails as defects, sign off.**
+
+> Trade-off to know: because Jobber can't calculate in-app, the supervisor won't see the % *inside Jobber* right after the audit — it appears on the dashboard / Sheet. If you ever need an instant on-site score, the Zapier→Sheet route (or a small tap-to-score tool) gives it.
+
 ### Dashboard mapping
-- Zone score % fields → **Audit pass rate** KPIs #1 & #2, trended per site over time.
-- Defects + due dates → **Corrective-action tracker** and **Defect rectification time** (KPI #6).
-- A Yellow score below 95% should trigger a re-audit before the next client report.
+- Per-item Pass/Fail/N/A → auto-computed zone % → **Audit pass rate** KPIs #1 & #2, trended per site.
+- Any **Fail** → log it in Defects → **Corrective-action tracker** + **Defect rectification time** (KPI #6).
+- A computed Yellow score below 95% auto-flags for a re-audit before the next client report.
