@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, Lock } from "lucide-react";
 import StarGlow from "@/components/ui/StarGlow";
 import { locations } from "@/lib/locations";
 
@@ -134,6 +134,13 @@ export default function Footer() {
           </p>
           <Link href="/privacy" className="text-white/20 hover:text-white/50 text-xs transition-colors">
             Privacy Policy
+          </Link>
+          <Link
+            href="/portal/login"
+            className="text-white/20 hover:text-white/50 text-xs transition-colors inline-flex items-center gap-1"
+            title="Internal staff access only"
+          >
+            <Lock size={11} /> Team Login
           </Link>
         </div>
       </div>
