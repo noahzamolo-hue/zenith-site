@@ -137,10 +137,15 @@ export default function Footer() {
           </Link>
           <Link
             href="/portal/login"
-            className="text-white/20 hover:text-white/50 text-xs transition-colors inline-flex items-center gap-1"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wide px-3 py-1.5 rounded-full transition-colors"
+            style={{
+              color: "#2A7FBC",
+              backgroundColor: "rgba(42,127,188,0.12)",
+              border: "1px solid rgba(42,127,188,0.30)",
+            }}
             title="Internal staff access only"
           >
-            <Lock size={11} /> Team Login
+            <Lock size={12} /> Team Login
           </Link>
         </div>
       </div>
