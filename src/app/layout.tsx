@@ -35,9 +35,6 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     type: 'website',
   },
-  alternates: {
-    canonical: '/',
-  },
 }
 
 export default function RootLayout({
