@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: 'About Us | Adelaide Medical Cleaning Specialists',
   description:
     "Zenith was founded because too many Adelaide medical clinics weren't audit-ready. We provide RACGP GP4.1 compliant cleaning with full photo documentation — so your practice is always prepared.",
+  alternates: { canonical: 'https://zenithfacilitymanagement.com.au/about' },
 }
 
 export default function AboutLayout({ children }: { children: React.ReactNode }) {

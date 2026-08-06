@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy Policy for Zenith Facility Management. How we collect, use, and protect your personal information.',
+  alternates: { canonical: 'https://zenithfacilitymanagement.com.au/privacy' },
 }
 
 const sections = [
