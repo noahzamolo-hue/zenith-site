@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type FormState = {
   name: string;
@@ -25,7 +26,7 @@ export default function ContactForm() {
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -36,40 +37,38 @@ export default function ContactForm() {
     const nameParts = form.name.trim().split(/\s+/);
     const payload = {
       timestamp: new Date().toISOString(),
-      event_type: 'contact_form_submitted',
-      campaign_name: 'Zenith Facility Management Campaigns',
-      workspace: '',
-      campaign_id: '',
+      event_type: "contact_form_submitted",
+      campaign_name: "Zenith Facility Management Campaigns",
+      workspace: "",
+      campaign_id: "",
       lead_email: form.email,
-      firstName: nameParts[0] || '',
-      lastName: nameParts.slice(1).join(' ') || '',
+      firstName: nameParts[0] || "",
+      lastName: nameParts.slice(1).join(" ") || "",
       companyName: form.practice,
-      website: '',
+      website: "",
       phone: form.phone,
       step: 1,
-      email_account: '',
+      email_account: "",
       message: form.message,
     };
 
     try {
       await fetch(
-        'https://services.leadconnectorhq.com/hooks/SLfn8Ix92WDxEmw7dvCR/webhook-trigger/522f2d40-524b-41f0-9f84-40509f83cc58',
+        "https://services.leadconnectorhq.com/hooks/SLfn8Ix92WDxEmw7dvCR/webhook-trigger/522f2d40-524b-41f0-9f84-40509f83cc58",
         {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-        }
+        },
       );
     } catch {
       // fire-and-forget — don't block the thank-you state
     }
 
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      ;(window as any).gtag('event', 'contact_form_submitted', {
-        event_category: 'lead',
-        event_label: 'walkthrough_request',
-      })
-    }
+    sendGTMEvent({
+      event: "contact_form_submitted",
+      form_type: "walkthrough_request",
+    });
     setSubmitted(true);
   };
 
@@ -120,7 +119,10 @@ export default function ContactForm() {
         >
           Message received
         </h3>
-        <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#6B7A8D" }}>
+        <p
+          className="text-sm leading-relaxed max-w-xs"
+          style={{ color: "#6B7A8D" }}
+        >
           We&apos;ll be in touch within one business day to confirm your
           walkthrough time.
         </p>
@@ -208,7 +210,8 @@ export default function ContactForm() {
       {/* Message */}
       <div>
         <label htmlFor="message" style={labelStyle}>
-          Message <span style={{ color: "#6B7A8D", fontWeight: 400 }}>(optional)</span>
+          Message{" "}
+          <span style={{ color: "#6B7A8D", fontWeight: 400 }}>(optional)</span>
         </label>
         <textarea
           id="message"
@@ -219,7 +222,11 @@ export default function ContactForm() {
           onChange={handleChange}
           onFocus={() => setFocused("message")}
           onBlur={() => setFocused(null)}
-          style={{ ...fieldStyle("message"), resize: "vertical", lineHeight: "1.6" }}
+          style={{
+            ...fieldStyle("message"),
+            resize: "vertical",
+            lineHeight: "1.6",
+          }}
         />
       </div>
 

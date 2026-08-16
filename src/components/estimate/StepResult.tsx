@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { EstimateData } from './EstimateFlow'
 import { calculateEstimate } from '../../lib/pricing'
 import { sendLeadToGHL } from '../../lib/ghl'
@@ -70,13 +71,11 @@ export default function StepResult({ data, onReset }: Props) {
     if (sentRef.current) return
     sentRef.current = true
     sendLeadToGHL(data, estimate)
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      ;(window as any).gtag('event', 'estimate_completed', {
-        event_category: 'engagement',
-        event_label: data.spaceType,
-        value: estimate.monthlyTotal,
-      })
-    }
+    sendGTMEvent({
+      event: 'estimate_completed',
+      space_type: data.spaceType,
+      estimate_value: estimate.monthlyTotal,
+    })
   }, [data, estimate])
 
   useEffect(() => {
