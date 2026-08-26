@@ -34,7 +34,7 @@ export const faqs: FaqItem[] = [
   },
   {
     q: 'Do you clean practices outside Adelaide CBD?',
-    a: 'Yes — we service practices across metropolitan Adelaide including the inner suburbs, eastern suburbs, southern suburbs, and northern corridor. If you\'re unsure whether we cover your area, call us on 0412 496 757 or send an enquiry and we\'ll confirm.',
+    a: 'Yes — we service practices across metropolitan Adelaide including the inner suburbs, eastern suburbs, southern suburbs, and northern corridor. If you\'re unsure whether we cover your area, call us on 0412 496 758 or send an enquiry and we\'ll confirm.',
   },
   {
     q: 'What is the free compliance walkthrough?',

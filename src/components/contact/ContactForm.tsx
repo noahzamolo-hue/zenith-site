@@ -242,6 +242,12 @@ export default function ContactForm() {
       <p className="text-xs text-center" style={{ color: "#6B7A8D" }}>
         We&apos;ll respond within one business day. No cost, no obligation.
       </p>
+      <p className="text-sm text-center" style={{ color: "#6B7A8D" }}>
+        Prefer to call?{" "}
+        <a href="tel:+61412496758" style={{ color: "#2A7FBC", fontWeight: 600 }}>
+          0412 496 758
+        </a>
+      </p>
     </form>
   );
 }

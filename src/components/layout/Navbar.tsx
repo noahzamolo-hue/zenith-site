@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import StarGlow from "@/components/ui/StarGlow";
 
 const navLinks = [
@@ -15,6 +15,9 @@ const navLinks = [
   { label: "Get an Estimate", href: "/estimate" },
   { label: "Contact", href: "/contact" },
 ];
+
+const PHONE_DISPLAY = "0412 496 758";
+const PHONE_HREF = "tel:+61412496758";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -61,6 +64,13 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <a
+            href={PHONE_HREF}
+            className="flex items-center gap-1.5 text-white/65 hover:text-white text-sm font-medium tracking-wide transition-colors duration-200"
+          >
+            <Phone size={15} />
+            {PHONE_DISPLAY}
+          </a>
           <Link
             href="/contact"
             className="text-white text-sm font-semibold px-5 py-2.5 rounded-lg tracking-wide transition-all duration-200 hover:opacity-90"
@@ -100,6 +110,15 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+          <a
+            href={PHONE_HREF}
+            className="flex items-center gap-2 text-white/80 py-3 text-base font-medium"
+            style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+            onClick={() => setOpen(false)}
+          >
+            <Phone size={18} />
+            {PHONE_DISPLAY}
+          </a>
           <Link
             href="/contact"
             className="mt-4 text-white text-sm font-semibold px-5 py-3.5 rounded-lg text-center"

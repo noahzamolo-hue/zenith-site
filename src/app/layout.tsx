@@ -49,7 +49,7 @@ export default function RootLayout({
     description:
       "RACGP GP4.1 compliant medical and clinical cleaning for Adelaide GP practices, specialist clinics, allied health, day surgeries, dental clinics, pathology centres, radiology centres, and medical centres.",
     url: "https://zenithfacilitymanagement.com.au",
-    telephone: "+61412496757",
+    telephone: "+61412496758",
     email: "noah@zenithfacilitymanagement.com.au",
     areaServed: {
       "@type": "AdministrativeArea",

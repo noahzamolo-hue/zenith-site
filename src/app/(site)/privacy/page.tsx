@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     heading: 'Who we are',
-    content: `Zenith Facility Management (ABN 55 839 625 234) is an Adelaide-based commercial cleaning company specialising in RACGP-compliant medical and clinical cleaning. We operate at zenithfacilitymanagement.com.au and can be contacted at noah@zenithfacilitymanagement.com.au or 0412 496 757.`,
+    content: `Zenith Facility Management (ABN 55 839 625 234) is an Adelaide-based commercial cleaning company specialising in RACGP-compliant medical and clinical cleaning. We operate at zenithfacilitymanagement.com.au and can be contacted at noah@zenithfacilitymanagement.com.au or 0412 496 758.`,
   },
   {
     heading: 'What information we collect',
@@ -52,7 +52,7 @@ These providers are required to handle your information in accordance with appli
   },
   {
     heading: 'Marketing communications',
-    content: `If you have submitted an enquiry or estimate request, we may contact you by email or phone with information relevant to your enquiry. Every email we send includes an unsubscribe link. You can also opt out at any time by emailing noah@zenithfacilitymanagement.com.au or calling 0412 496 757.
+    content: `If you have submitted an enquiry or estimate request, we may contact you by email or phone with information relevant to your enquiry. Every email we send includes an unsubscribe link. You can also opt out at any time by emailing noah@zenithfacilitymanagement.com.au or calling 0412 496 758.
 
 We comply with the Australian Spam Act 2003.`,
   },
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
                   noah@zenithfacilitymanagement.com.au
                 </a>
                 <br />
-                Phone: <a href="tel:+61412496757" style={{ color: '#2A7FBC' }}>0412 496 757</a>
+                Phone: <a href="tel:+61412496758" style={{ color: '#2A7FBC' }}>0412 496 758</a>
                 <br />
                 Zenith Facility Management, Adelaide SA
               </p>

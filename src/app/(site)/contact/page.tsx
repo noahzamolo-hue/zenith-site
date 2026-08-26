@@ -154,7 +154,7 @@ export default function ContactPage() {
                   <li className="flex gap-3 items-center">
                     <Phone size={15} className="shrink-0" style={{ color: "#2A7FBC" }} />
                     <span className="text-sm" style={{ color: "#0D1F3C" }}>
-                      0412 496 757
+                      0412 496 758
                     </span>
                   </li>
                   <li className="flex gap-3 items-center">
