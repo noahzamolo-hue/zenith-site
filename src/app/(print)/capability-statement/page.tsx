@@ -119,7 +119,7 @@ export default function CapabilityStatementPage() {
 
         {/* Contact strip */}
         <div className="cover-contact">
-          <span>0412 496 757</span>
+          <span>0412 496 758</span>
           <span className="contact-divider">·</span>
           <span>noah@zenithfacilitymanagement.com.au</span>
           <span className="contact-divider">·</span>
@@ -266,7 +266,7 @@ export default function CapabilityStatementPage() {
             <p className="final-cta-heading">Book your free RACGP compliance walkthrough</p>
             <p className="final-cta-sub">No cost. No obligation. A clear picture of where your practice stands — and what needs to change before your next review.</p>
             <div className="final-contact">
-              <span className="final-contact-item">📞 0412 496 757</span>
+              <span className="final-contact-item">📞 0412 496 758</span>
               <span className="final-contact-item">✉ noah@zenithfacilitymanagement.com.au</span>
               <span className="final-contact-item">🌐 zenithfacilitymanagement.com.au</span>
             </div>
